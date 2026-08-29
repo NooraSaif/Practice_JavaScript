@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>shopping cart</title>
+  </head>
+  <body>
+    <h3>Shopping Cart</h3>
+    <button onclick="alert('Cart quntity: ' + cartQuntity)">
+      Show Quantity
+    </button>
+    <button
+      onclick="
+        cartQuntity++;
+        alert('Cart quntity: ' + cartQuntity);
+      "
+    >
+      Add to Cart
+    </button>
+    <button
+      onclick="
+        cartQuntity += 2;
+        alert('Cart quntity: ' + cartQuntity);
+      "
+    >
+      +2
+    </button>
+    <button
+      onclick="
+        cartQuntity = 0;
+        alert('Cart quntity: ' + cartQuntity);
+      "
+    >
+      Reset
+    </button>
+
+    <script>
+      let cartQuntity = 0;
+    </script>
+  </body>
+</html>
