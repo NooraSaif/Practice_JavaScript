@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Rock Paper Scissor Game</title>
+  </head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #3f4a88;
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+  <body>
+    <h3>Chose your move</h3>
+
+    <!-- Rock button -->
+    <button onclick="
+      let computerChoice = Math.floor(Math.random() * 3);
+      let result= '';
+
+      if (computerChoice === 0) {
+        computerChoice = 'Rock';
+        result = 'Tie';
+      } else if (computerChoice === 1) {
+        computerChoice = 'Paper';
+        result = 'You lose';
+      } else {
+        computerChoice = 'Scissor';
+        result = 'You win';
+      }
+      
+      alert('You chose: Rock \n Computer chose: ' + computerChoice + '\n Result: ' + result);
+      ">  
+      Rock</button>
+
+    <!-- Paper button -->
+    <button onclick="
+      let computerChoice2 = Math.floor(Math.random() * 3);
+      let result2= '';
+      
+      if (computerChoice2 === 0) {
+        computerChoice2 = 'Rock';
+        result2 = 'You win';
+      } else if (computerChoice2 === 1) {
+        computerChoice2 = 'Paper';
+        result2 = 'Tie';
+      } else {
+        computerChoice2 = 'Scissor';
+        result2 = 'You lose';
+      }
+      
+      alert('You chose: Paper \n Computer chose: ' + computerChoice2 + '\n result: ' + result2);
+      ">
+      Paper</button>
+
+    <!-- Scissor button -->
+    <button onclick="
+      let computerChoice3 = Math.floor(Math.random() * 3);
+      let result3= '';
+      
+      if (computerChoice3 === 0) {
+        computerChoice3 = 'Rock';
+        result3 = 'You lose';
+      } else if (computerChoice3 === 1) {
+        computerChoice3 = 'Paper';
+        result3 = 'You win';
+      } else {
+        computerChoice3 = 'Scissor';
+        result3 = 'Tie';
+      }
+      
+      alert('You chose: Scissor \n Computer chose: ' + computerChoice3 + '\n result: ' + result3);
+      ">
+      Scissor</button>
+
+
+    <script>  
+    </script>
+
+  </body>
+</html>
