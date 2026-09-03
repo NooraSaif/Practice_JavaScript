@@ -29,66 +29,71 @@
 
     <!-- Rock button -->
     <button onclick="
-      let computerChoice = Math.floor(Math.random() * 3);
-      let result= '';
 
-      if (computerChoice === 0) {
-        computerChoice = 'Rock';
-        result = 'Tie';
-      } else if (computerChoice === 1) {
-        computerChoice = 'Paper';
-        result = 'You lose';
-      } else {
-        computerChoice = 'Scissor';
-        result = 'You win';
-      }
-      
+      const computerChoice = computerPlay();
+      const result = playRound('Rock', computerChoice);
+
       alert('You chose: Rock \n Computer chose: ' + computerChoice + '\n Result: ' + result);
-      ">  
-      Rock</button>
+      ">Rock</button>
 
     <!-- Paper button -->
     <button onclick="
-      let computerChoice2 = Math.floor(Math.random() * 3);
-      let result2= '';
-      
-      if (computerChoice2 === 0) {
-        computerChoice2 = 'Rock';
-        result2 = 'You win';
-      } else if (computerChoice2 === 1) {
-        computerChoice2 = 'Paper';
-        result2 = 'Tie';
-      } else {
-        computerChoice2 = 'Scissor';
-        result2 = 'You lose';
-      }
+      const computerChoice2 = computerPlay();
+      const result2 = playRound('Paper', computerChoice2);
+    
       
       alert('You chose: Paper \n Computer chose: ' + computerChoice2 + '\n result: ' + result2);
-      ">
-      Paper</button>
+      ">Paper</button>
 
     <!-- Scissor button -->
     <button onclick="
-      let computerChoice3 = Math.floor(Math.random() * 3);
-      let result3= '';
-      
-      if (computerChoice3 === 0) {
-        computerChoice3 = 'Rock';
-        result3 = 'You lose';
-      } else if (computerChoice3 === 1) {
-        computerChoice3 = 'Paper';
-        result3 = 'You win';
-      } else {
-        computerChoice3 = 'Scissor';
-        result3 = 'Tie';
-      }
-      
+
+      const computerChoice3 = computerPlay();
+      const result3 = playRound('Scissor', computerChoice3);
+
       alert('You chose: Scissor \n Computer chose: ' + computerChoice3 + '\n result: ' + result3);
-      ">
-      Scissor</button>
+
+      ">Scissor</button>
 
 
     <script>  
+
+      function computerPlay() { 
+        
+        const randomNumber = Math.floor(Math.random() * 3);
+
+        let computerChoice = '';
+
+        if (randomNumber === 0) {
+          computerChoice = 'Rock';
+        } else if (randomNumber === 1) {
+          computerChoice = 'Paper';
+        } else {
+          computerChoice = 'Scissor';
+        }
+
+        return computerChoice;
+      }
+
+      function playRound(playerSelection, computerSelection) {
+        
+        let result = '';
+
+        if (playerSelection === computerSelection) {
+          result = 'Tie';
+        } else if (
+          (playerSelection === 'Rock' && computerSelection === 'Scissor') ||
+          (playerSelection === 'Paper' && computerSelection === 'Rock') ||
+          (playerSelection === 'Scissor' && computerSelection === 'Paper')
+        ) {
+          result = 'You win';
+        } else {
+          result = 'You lose';
+        }
+
+        return result;
+      }
+
     </script>
 
   </body>
