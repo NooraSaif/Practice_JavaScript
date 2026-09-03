@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Functions</title>
+</head>
+<body>
+  
+  <script>
+    // function with parameter
+    function greet(name) {
+      return "Hello, " + name + "!";
+    }
+
+    let userName = prompt("Enter your name:");
+    let greetingMessage = greet(userName);
+    alert(greetingMessage);
+
+    // function without parameter
+    function getCurrentDate() {
+      let currentDate = new Date();
+      return currentDate.toDateString();
+    }
+    console.log(getCurrentDate());
+
+    // function with multiple parameters
+    function addNumbers(a, b) {
+      return a + b;
+    }
+
+    let num1 = Number(prompt("Enter the first number:"));
+    let num2 = Number(prompt("Enter the second number:"));
+    let sum = addNumbers(num1, num2);
+    alert(`The sum of ${num1} and ${num2} is ${sum}`);
+    // console.log("the sum is: " + sum);
+
+
+  </script>
+</body>
+</html>
