@@ -33,7 +33,6 @@
       const computerChoice = computerPlay();
       const result = playRound('Rock', computerChoice);
 
-      alert('You chose: Rock \n Computer chose: ' + computerChoice + '\n Result: ' + result);
       ">Rock</button>
 
     <!-- Paper button -->
@@ -41,8 +40,6 @@
       const computerChoice2 = computerPlay();
       const result2 = playRound('Paper', computerChoice2);
     
-      
-      alert('You chose: Paper \n Computer chose: ' + computerChoice2 + '\n result: ' + result2);
       ">Paper</button>
 
     <!-- Scissor button -->
@@ -51,12 +48,33 @@
       const computerChoice3 = computerPlay();
       const result3 = playRound('Scissor', computerChoice3);
 
-      alert('You chose: Scissor \n Computer chose: ' + computerChoice3 + '\n result: ' + result3);
-
       ">Scissor</button>
 
+    <!-- reset button -->
+    <button onclick="
+      score.wins = 0;
+      score.losses = 0;
+      score.ties = 0;
+      localStorage.removeItem('score'); // this will display null value
+      ">Reset</button>
 
     <script>  
+      // Initialize score in localStorage if not present
+      let score = JSON.parse(localStorage.getItem('score'));
+
+      if (score === null) {
+        score = { wins: 0, losses: 0, ties: 0 };
+      }
+
+      /* 
+      shortcut using not
+        if (!score) {
+          score = { wins: 0, losses: 0, ties: 0 };
+        }
+
+      shortcut using or ||
+        let score = JSON.parse(localStorage.getItem('score')) || { wins: 0, losses: 0, ties: 0 };
+      */
 
       function computerPlay() { 
         
@@ -91,7 +109,19 @@
           result = 'You lose';
         }
 
-        return result;
+        if (result === 'You win') {
+          score.wins++;
+        } else if (result === 'You lose') {
+          score.losses++;
+        } else if (result === 'Tie') {
+          score.ties++;
+        }
+
+        // save the score result in localStorage
+        // .setItem('name ', 'string value');
+        localStorage.setItem('score', JSON.stringify(score));
+
+        alert(`You chose: ${playerSelection} \n Computer chose: ${computerSelection} \n result: ${result} \n score: Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
       }
 
     </script>

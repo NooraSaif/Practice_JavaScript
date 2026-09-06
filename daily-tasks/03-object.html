@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>object</title>
+</head>
+<body>
+
+  <script>
+    // JS object 
+    const person = {
+      massege: "Hello",
+      firstName: "John",
+      lastName: "Doe",
+      age: 30,
+      bodyDetails: {
+        height: "150 cm",
+        weight: "45 kg"
+      },
+      fullName: function() {
+        return this.firstName + " " + this.lastName;
+      }
+    };
+
+    console.log(person); // Accessing the entire object
+    console.log(person.firstName); // Accessing property  
+    console.log(person['firstName']); // Accessing property using bracket notation 
+    console.log(person.bodyDetails.height); // Accessing nested property
+    console.log(person.fullName()); // Calling method
+
+    // convert JS object into JSON string  
+    console.log(JSON.stringify(person));
+
+    // convert JSON string into JS Object
+    const jsonString = JSON.stringify(person);
+    console.log(JSON.parse(jsonString));
+
+    // JS string methods
+    console.log('hello'.length);
+    console.log('hello'.toUpperCase());
+
+    // shortcut 
+    // const firstName = person.firstName;
+    const {firstName} = person;
+    console.log(firstName);
+
+    const {lastName, age} = person;
+    console.log(lastName);
+    console.log(age);
+
+    const person2 {
+      massege
+    };
+
+  </script>
+</body>
+</html>
