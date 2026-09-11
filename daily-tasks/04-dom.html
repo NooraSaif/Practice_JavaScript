@@ -6,10 +6,11 @@
   <title>Document</title>
 </head>
 <body>
+  <!-- youtub subscriptions-->
   <h5>YouTube subscriptions</h5>
   <button id="subscribeButton" onclick="
   toggleSubscription()
-  ">Subscribe</button>
+  " >Subscribe</button>
   <p id="subscriptionCount">0</p>
 
   <br>
@@ -29,12 +30,15 @@
   <button onclick="
   calculationShapping()
   ">Calculate</button>
+  <!-- <button onkeydown="
+  keydownEventHandler(event)
+  ">Calculate</button> -->
   <p id="total"></p>
 
   <script>
     function calculationShapping() {
       const getAmount = document.getElementById('calcShapping');
-      const userInput = getAmount.value;
+      const userInput = Number(getAmount.value);
 
       if (userInput < 50) {
         result = userInput + 5;
@@ -43,7 +47,11 @@
       document.getElementById('total').textContent = `Total amount: ${result}`;
     }
 
-
+    // function keydownEventHandler(event) {
+    //   if (event.key === 'Enter') {
+    //     calculationShapping();
+    //   }
+    // }
 
     function calculationResult() {
       const getNum1 = document.getElementById('num1'); 
